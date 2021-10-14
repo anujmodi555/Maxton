@@ -1,0 +1,37 @@
+Python supports 2 modules for multithreading:
+
+__thread module: It provides a low-level implementation for threading and is obsolete.
+threading module: It provides a high-level implementation for multithreading and is the current standard.
+
+To create a thread using the threading module, you must do the following:
+
+Create a class which extends the Thread class.
+Override its constructor (__init__).
+Override its run() method.
+Create an object of this class.
+
+A thread can be executed by calling the start() method.
+
+The join() method can be used to block other threads until this thread (the one on which join was called) finishes execution.
+
+A race condition occurs when multiple threads access or modify a shared resource at the same time.
+
+It can be avoided by Synchronizing threads.
+
+Python supports 6 ways to synchronize threads:
+Locks
+RLocks
+Semaphores
+Conditions
+Events, and
+Barriers
+
+Locks allow only a particular thread which has acquired the lock to enter the critical section.
+
+A Lock has 2 primary methods:
+acquire(): It sets the lock state to locked. If called on a locked object, it blocks until the resource is free.
+release(): It sets the lock state to unlocked and returns. If called on an unlocked object, it returns false.
+
+The global interpreter lock is a mechanism through which only 1 CPython interpreter process can execute at a time.
+It was used to facilitate the reference counting functionality of CPythons’s garbage collector.
+To make Python apps with heavy CPU-bound operations, you should use the multiprocessing module.

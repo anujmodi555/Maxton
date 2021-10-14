@@ -1,0 +1,12 @@
+Asyncio stands for asynchronous input output and refers to a programming paradigm which achieves high concurrency using
+a single thread or event loop.
+
+Why use asyncio instead of multithreading in Python?
+It’s very difficult to write code that is thread safe. With asynchronous code, you know exactly where the code will shift
+from one task to the next and race conditions are much harder to come by.
+
+Threads consume a fair amount of data since each thread needs to have its own stack. With async code, all the code shares
+the same stack and the stack is kept small due to continuously unwinding the stack between tasks.
+
+Threads are OS structures and therefore require more memory for the platform to support. There is no such problem with
+asynchronous tasks.

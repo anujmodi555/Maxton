@@ -1,0 +1,44 @@
+my_string = 'hi this is a test hi this is a test hi this is a test This Is Python'
+my_string = my_string.split()
+list_a = {}
+
+for item in my_string:
+    item = item.lower()
+    keys = list_a.keys()
+    if item in keys:
+        list_a[item] += 1
+
+    else:
+        list_a[item] = 1
+
+print(list_a)
+
+class Employee:
+
+    def __init__(self, name, age, position):
+        self.age  = age
+        self.name = name
+        self.position = position
+
+    def emp_info(self):
+        print("Name is "+ str(self.name))
+        print("age is " + str(self.age))
+        print("position is " + str(self.position))
+
+
+obj1 = Employee('Anuj', 10, 'Eng')
+print(obj1.emp_info())
+
+def hello_decorator(function):
+    def wrapper():
+        func = function()
+        stirng_lower = func.lower()
+        return stirng_lower
+    return wrapper
+
+@hello_decorator
+def hello():
+    return "This is test function"
+
+print(hello())
+
