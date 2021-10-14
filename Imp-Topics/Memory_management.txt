@@ -1,0 +1,41 @@
+1. How To Get the Memory Address of a Python Object (or Vice Versa)?
+The id() function is used to get the memory address of a Python object.
+id(punk)
+4319088080
+
+2. But how to do the reverse operation?
+import _ctypes
+print(_ctypes.PyObj_FromPtr(4319088080))
+2077
+
+3. How Does Python Collect Garbage (Useless Objects)?
+Python applies the reference counting method to collect garbage in memory.
+Python uses a method called reference counting to decide when an object needs to be collected in the memory.
+Simply put, Python calculates each object’s reference counts, when an object has no reference, it will be collected.
+# 1 ref to 2077
+>>> punk=2077
+# 2 ref to 2077
+>>> yang=punk
+>>> print(id(punk),id(yang))
+4322118928 4322118928
+>>> del yang
+>>> print(_ctypes.PyObj_FromPtr(4322118928))
+2077
+
+4. How Does Python Optimise Memory Usages (Interning Mechanism)?
+Python uses the interning mechanism to save time and memory costs.
+punk=2077
+>>> a=256
+>>> b=256
+>>> a==b
+True
+>>> a is b
+True
+>>> c=257
+>>> d=257
+>>> c==d
+True
+>>> c is d
+False
+In order to save time and memory costs, Python always pre-loads all the small integers in the range of [-5, 256].
+When a new integer variable in this range is declared, Python just references the cached integer to it and won’t create any new object.

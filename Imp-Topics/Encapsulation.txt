@@ -1,0 +1,53 @@
+# program to illustrate public access modifier in a class
+
+class edpresso:
+    # constructor
+    def __init__(self, name, project):
+        self.name = name;
+        self.project = project;
+
+    def displayProject(self):
+        # accessing public data member
+        print("Project: ", self.project)
+
+# creating object of the class
+edp = edpresso("TeamPhoenix", 1);
+
+# accessing public data member
+print("Name: ", edp.name)
+
+# calling public member function of the class
+edp.displayProject()
+
+# program to illustrate protected access modifier in a class
+
+class edpresso:
+    def __init__(self, name, project):
+        self._name = name
+        self._project = project
+
+# creating object of the class
+edp = edpresso("TeamPhoenix", 2)
+
+# direct access of protected member
+print("Name:",edp._name)
+print("project:",edp._project)
+
+# program to illustrate private access modifier in a class
+
+class edpresso:
+   def __init__(self, name, project):
+      # public variable
+      self.name = name
+      # private variable
+      self.__project = project
+
+# creating an instance of the class Sample
+edp = edpresso('TeamPhoenix', 3)
+
+# accessing public variable name
+print("Name:",edp.name)
+
+# accessing private variable __project using
+# _Edpresso__project name
+print("Project:",edp._edpresso__project)
